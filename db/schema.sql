@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS tale_db;
+CREATE DATABASE tale_db;
