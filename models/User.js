@@ -31,11 +31,6 @@ User.init(
         len: [8],
       },
     },
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: "user",
   },
   {
     hooks: {
@@ -51,6 +46,11 @@ User.init(
         return updatedUserData;
       },
     },
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "user",
   }
 );
 
