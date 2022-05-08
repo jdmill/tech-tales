@@ -1,22 +1,22 @@
 const newCommentHandler = async (event) => {
   event.preventDefault();
 
+  const post_id = document.querySelector('input[name="post-id"]').value;
   const comment = document.querySelector("#post-comment").value.trim();
 
   if (comment) {
-    const response = await fetch(`/api/comments`, {
+    await fetch("/api/comment", {
       method: "POST",
-      body: JSON.stringify({ comment }),
+      body: JSON.stringify({
+        post_id,
+        comment,
+      }),
       headers: {
         "Content-Type": "application/json",
       },
     });
 
-    if (response.ok) {
-      document.location.reload();
-    } else {
-      alert("Failed to create post");
-    }
+    document.location.reload();
   }
 };
 

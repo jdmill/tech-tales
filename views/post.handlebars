@@ -27,6 +27,7 @@
     <h3>Create a New Comment:</h3>
 
     <form class="form new-comment-form">
+      <input type="hidden" name="post-id" value="{{post.id}}" />
       <div class="form-group">
         <label for="post-comment">comment:</label>
         <textarea class="form-input" id="post-comment" name="post-comment"></textarea>
