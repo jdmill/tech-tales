@@ -4,16 +4,36 @@
   <p>Created by {{user.name}} on {{formatDate dateCreated}}</p>
 </div>
 
-<div class="">
-  <form id="comment-form" class="card">
-    <div class="card-header">
-      <h5>Add Comment</h5>
+{{#if post.Comments}}
+  <section>
+    <div>
+      <h4>Comments</h4>
     </div>
+    <div>
+      {{#each post.Comments}}
+        <div>
+          <p>
+            {{body}}
+          </p>
+          <p>
+            {{user.name}},
+            {{formatDate dateCreated}}
+          </p>
+        </div>
+      {{/each}}
+    </div>
+  </section>
+{{/if}}
 
+<div class="">
+  <div class="card-header">
+    <h5>Add Comment</h5>
+  </div>
+  <form id="comment-form" class="card">
     <div class="card-body">
       <input type="hidden" name="post-id" value="{{post.id}}" />
       <label class="form-label" for="comment">Comment</label>
-      <textarea name="comment" class="post-comment"></textarea>
+      <textarea name="post-comment" class="form-input"></textarea>
       <button type="submit" class="btn">Submit</button>
     </div>
   </form>

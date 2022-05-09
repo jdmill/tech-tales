@@ -6,7 +6,7 @@ const newCommentHandler = async (event) => {
     .querySelector('textarea[name="post-comment"]')
     .value.trim();
 
-  if (comment) {
+  if (comment && post_id) {
     await fetch("/api/comment", {
       method: "POST",
       body: JSON.stringify({
@@ -22,7 +22,7 @@ const newCommentHandler = async (event) => {
   }
 };
 
-const deleteClickHandler = async function () {
+const delButtonHandler = async function () {
   await fetch(`/api/post/${post_id}`, {
     method: "DELETE",
   });
@@ -31,9 +31,5 @@ const deleteClickHandler = async function () {
 };
 
 document
-  .querySelector(".new-comment-form")
+  .querySelector("#comment-form")
   .addEventListener("submit", newCommentHandler);
-
-document
-  .querySelector(".comment-list")
-  .addEventListener("click", delButtonHandler);
