@@ -22,6 +22,7 @@ const newCommentHandler = async (event) => {
   }
 };
 
+// delete Post button
 const delButtonHandler = async function () {
   await fetch(`/api/post/${post_id}`, {
     method: "DELETE",

@@ -6,7 +6,8 @@
 
 <div>
   <div>
-    <h3>Create a New Post:</h3>
+    {{! creates a new post }}
+    <h3>New Post:</h3>
 
     <form class="form new-post-form">
       <div class="form-group">
@@ -32,6 +33,7 @@
     </form>
   </div>
 
+  {{! renders current posts }}
   {{#if posts.length}}
     <div class="post-list">
       <h3>Current posts:</h3>

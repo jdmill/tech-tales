@@ -1,16 +1,18 @@
+{{! Post view }}
 <div class="card">
   <h2 class="card-header">{{title}}</h2>
   <p>{{article}}</p>
   <p>Created by {{user.name}} on {{formatDate dateCreated}}</p>
 </div>
 
-{{#if post.Comments}}
+{{! Was unable to get this comment section working }}
+{{#if post.comments}}
   <section>
     <div>
       <h4>Comments</h4>
     </div>
     <div>
-      {{#each post.Comments}}
+      {{#each post.comments}}
         <div>
           <p>
             {{body}}
