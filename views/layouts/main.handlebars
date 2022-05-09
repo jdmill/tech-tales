@@ -1,5 +1,5 @@
 <html lang="en">
-
+  {{! main html page }}
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,7 +22,7 @@
           <a href="/">Tech Tales</a>
         </h1>
         <nav>
-          <!-- Conditionally render login or logout links -->
+          <!-- login or logout links -->
           {{#if logged_in}}
             <a class="li-inline nav-item" href="/dashboard">Dashboard</a>
             <button
@@ -34,8 +34,8 @@
           {{/if}}
         </nav>
       </header>
-      <main class="col-auto border">
-        <!-- Render the sub layout -->
+      <main class="flex-column d-flex align-content-center container">
+        <!-- layouts rendered here -->
         {{{body}}}
       </main>
       <footer>
@@ -43,7 +43,7 @@
       </footer>
     </div>
 
-    <!-- Render script for logged in users only -->
+    <!-- logged in users only -->
     {{#if logged_in}}
       <script src="/js/logout.js"></script>
     {{/if}}
