@@ -2,7 +2,9 @@ const newCommentHandler = async (event) => {
   event.preventDefault();
 
   const post_id = document.querySelector('input[name="post-id"]').value;
-  const comment = document.querySelector("#post-comment").value.trim();
+  const comment = document
+    .querySelector('textarea[name="post-comment"]')
+    .value.trim();
 
   if (comment) {
     await fetch("/api/comment", {
@@ -20,20 +22,12 @@ const newCommentHandler = async (event) => {
   }
 };
 
-const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute("data-id")) {
-    const id = event.target.getAttribute("data-id");
+const deleteClickHandler = async function () {
+  await fetch(`/api/post/${post_id}`, {
+    method: "DELETE",
+  });
 
-    const response = await fetch(`/api/posts/${id}`, {
-      method: "DELETE",
-    });
-
-    if (response.ok) {
-      document.location.replace("/profile");
-    } else {
-      alert("Failed to delete post");
-    }
-  }
+  document.location.replace("/dashboard");
 };
 
 document
